@@ -1,1 +1,70 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Errata Report",
+  "type": "object",
+  "required": ["document_title", "review_scope", "issues"],
+  "properties": {
+    "document_title": {
+      "type": "string"
+    },
+    "review_scope": {
+      "type": "string"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "location",
+          "issue_title",
+          "problem_type",
+          "original",
+          "check",
+          "judgement",
+          "corrected_version",
+          "confidence"
+        ],
+        "properties": {
+          "location": {
+            "type": "string"
+          },
+          "issue_title": {
+            "type": "string"
+          },
+          "problem_type": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "original": {
+            "type": "string"
+          },
+          "check": {
+            "type": "string"
+          },
+          "judgement": {
+            "type": "string",
+            "enum": [
+              "Confirmed error",
+              "Likely error",
+              "Convention-dependent",
+              "Ambiguous",
+              "Correct but misleading",
+              "Correct but should be clarified",
+              "Outdated but historically understandable",
+              "No correction needed"
+            ]
+          },
+          "corrected_version": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["High", "Medium", "Low"]
+          }
+        }
+      }
+    }
+  }
+}
