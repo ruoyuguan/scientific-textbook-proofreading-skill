@@ -50,9 +50,7 @@ If the page number, equation number, or source location is unavailable, say so e
 
 ## 2. Controlled Problem Types
 
-Use one or more of the following problem types.
-
-Machine-readable form:
+Use one or more of the following machine-readable problem types:
 
 ```text
 formula_error
@@ -173,7 +171,7 @@ Do not cite a source unless it actually supports the correction.
 
 Use the following Markdown structure for each issue.
 
-```markdown
+````markdown
 ### Issue CHNN-XXX — Page / Section / Equation
 
 **Original formula or statement**
@@ -231,7 +229,7 @@ Confirmed error / Likely error / Convention-dependent / Ambiguous / Correct but 
 **Confidence**
 
 High / Medium / Low
-```
+````
 
 ---
 
