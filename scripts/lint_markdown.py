@@ -33,6 +33,7 @@ FORBIDDEN_TOKENS = [
 
 
 def iter_markdown_files() -> list[Path]:
+    """Return Markdown files that should be linted."""
     files: list[Path] = []
 
     for root in ROOTS:
@@ -45,12 +46,16 @@ def iter_markdown_files() -> list[Path]:
 
 
 def lint_forbidden_tokens(path: Path, text: str) -> None:
+    """Reject known rendering artifacts."""
     for token in FORBIDDEN_TOKENS:
         if token in text:
-            raise SystemExit(f"Forbidden rendering artifact {token!r} found in {path}")
+            raise SystemExit(
+                f"Forbidden rendering artifact {token!r} found in {path}"
+            )
 
 
 def lint_fences(path: Path, text: str) -> None:
+    """Check that fenced Markdown code blocks are balanced."""
     stack: list[tuple[str, int]] = []
 
     for line_number, line in enumerate(text.splitlines(), start=1):
@@ -85,12 +90,14 @@ def lint_fences(path: Path, text: str) -> None:
 
 
 def lint_file(path: Path) -> None:
+    """Lint a single Markdown file."""
     text = path.read_text(encoding="utf-8")
     lint_forbidden_tokens(path, text)
     lint_fences(path, text)
 
 
 def main() -> None:
+    """Run Markdown lint checks."""
     files = iter_markdown_files()
 
     if not files:
