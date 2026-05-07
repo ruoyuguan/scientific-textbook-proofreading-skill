@@ -31,6 +31,19 @@ The primary goal is to detect scientifically meaningful problems, especially:
 
 This is not a general copyediting or layout-correction skill. The assistant should ignore typography, page layout, missing references, placeholder citations, figure placement, and grammar-only issues unless the user explicitly asks for them.
 
+## Companion Files
+
+This skill is the main activation file. For stricter output requirements and project-level conventions, follow the companion files in this repository when available:
+
+- `skill/output_contract.md` defines the full errata-report output contract.
+- `skill/scientific_rubric.md` defines scientific review criteria.
+- `skill/citation_policy.md` defines source and citation expectations.
+- `skill/refusal_and_uncertainty_policy.md` defines uncertainty handling.
+- `schemas/errata_report.schema.json` defines the machine-readable JSON report structure.
+- `templates/processing_notes.template.md` defines the preferred processing-notes structure.
+
+When there is a conflict between a shorter format shown in this file and the fuller output contract, prefer the fuller contract in `skill/output_contract.md`.
+
 ## User Context
 
 The user is usually acting as an author, editor, instructor, graduate student, or technical reviewer of a scientific textbook or course manuscript.
@@ -289,9 +302,29 @@ If no scientific issue is found in a review unit, say:
 
 ## Required Output Format
 
-For each reported issue, use the following structure.
+For ordinary chapter-level errata reports, use the full issue structure defined in `skill/output_contract.md`.
 
-### Issue N — Page / Section / Equation
+Each reported issue should include:
+
+1. Stable issue identifier, such as `CH01-001`.
+2. Exact location in the manuscript.
+3. Original formula or statement.
+4. Machine-readable problem type.
+5. Severity.
+6. Extraction reliability.
+7. Verification method.
+8. Evidence or source basis.
+9. Re-derivation, dimensional analysis, source comparison, or logical check.
+10. Judgement.
+11. Corrected formula or statement.
+12. Suggested replacement prose when useful.
+13. Human-review note.
+14. Confidence.
+
+Use the following compact template when writing Markdown reports.
+
+````markdown
+### Issue CHNN-XXX — Page / Section / Equation
 
 **Original formula or statement**
 
@@ -301,41 +334,34 @@ For each reported issue, use the following structure.
 
 **Problem type**
 
-Choose one or more:
+- `formula_error`
 
-- Formula error
-- Dimensional inconsistency
-- Wrong numerical coefficient
-- Wrong physical assumption
-- Wrong physical regime
-- Unit-system mismatch
-- Convention mismatch
-- Ambiguous notation
-- Inconsistent cross-reference
-- Misleading prose
-- Outdated scientific claim
-- Pedagogical clarification
-- Numerical error
-- Source inconsistency
+**Severity**
+
+- `major`
+
+**Extraction reliability**
+
+- `high`
+
+**Verification method**
+
+- `dimensional_analysis`
+
+**Evidence / sources**
+
+- Manuscript: ...
+- Reference source: ...
+- Current source, if used: ...
+- Notes: ...
 
 **Re-derivation / check**
 
-Show the derivation, dimensional analysis, limiting-case test, numerical reproduction, or source comparison.
-
-The check should be explicit enough for a human expert to verify.
+...
 
 **Judgement**
 
-Choose one:
-
-- Confirmed error
-- Likely error
-- Convention-dependent
-- Ambiguous
-- Correct but misleading
-- Correct but should be clarified
-- Outdated but historically understandable
-- No correction needed
+Confirmed error / Likely error / Convention-dependent / Ambiguous / Correct but misleading / Correct but should be clarified / Outdated but historically understandable / No correction needed
 
 **Corrected formula or statement**
 
@@ -345,21 +371,22 @@ Choose one:
 
 **Suggested replacement prose**
 
-Provide a publishable corrected sentence or paragraph when appropriate.
+...
+
+**Human-review note**
+
+...
 
 **Confidence**
 
-Choose one:
+High / Medium / Low
+````
 
-- High
-- Medium
-- Low
+Do not include `No correction needed` items in ordinary errata reports unless the user explicitly asks for a complete audit log.
 
 ## Chapter-Level Summary
 
-At the end of each chapter review, include a short chapter-level summary.
-
-Use this format:
+At the end of each chapter review, include:
 
 ```markdown
 ## Chapter Summary
@@ -368,6 +395,9 @@ Use this format:
 - Likely errors: N
 - Convention-dependent issues: N
 - Clarification-only issues: N
+- Extraction limitations: ...
+- Highest-priority corrections: ...
+- Manual checks required: ...
 - Overall judgement: ...
 ```
 
@@ -551,9 +581,11 @@ When writing reports to files:
 
 ### Chapter report template
 
-Each chapter report should use this structure:
+Each chapter report should use the full structure defined in `skill/output_contract.md`.
 
-```markdown
+Recommended chapter report skeleton:
+
+````markdown
 # Chapter N Errata Report
 
 ## Scope
@@ -565,7 +597,7 @@ Each chapter report should use this structure:
 
 ## Issues
 
-### Issue 1 — Page / Section / Equation
+### Issue CHNN-XXX — Page / Section / Equation
 
 **Original formula or statement**
 
@@ -575,7 +607,26 @@ Each chapter report should use this structure:
 
 **Problem type**
 
-- ...
+- `problem_type`
+
+**Severity**
+
+- `major`
+
+**Extraction reliability**
+
+- `high`
+
+**Verification method**
+
+- `dimensional_analysis`
+
+**Evidence / sources**
+
+- Manuscript:
+- Reference source:
+- Current source, if used:
+- Notes:
 
 **Re-derivation / check**
 
@@ -595,9 +646,13 @@ Each chapter report should use this structure:
 
 ...
 
+**Human-review note**
+
+...
+
 **Confidence**
 
-High / Medium / Low.
+High / Medium / Low
 
 ## Chapter Summary
 
@@ -605,8 +660,13 @@ High / Medium / Low.
 - Likely errors: N
 - Convention-dependent issues: N
 - Clarification-only issues: N
+- Extraction limitations: ...
+- Highest-priority corrections: ...
+- Manual checks required: ...
 - Overall judgement: ...
-```
+````
+
+For file-based workflows, create or update `reports/processing_notes.md` using the structure in `templates/processing_notes.template.md` when extraction quality, source matching, page mapping, or chapter boundary detection is uncertain.
 
 ### Summary report template
 
