@@ -49,7 +49,11 @@ scientific-textbook-proofreading-skill/
 │   │   ├── sample_page.md
 │   │   └── sample_equations.tex
 │   ├── expected_output/
-│   │   └── sample_errata_report.md
+│   │   ├── sample_errata_report.md
+│   │   ├── synthetic_chapter_01_errata.md
+│   │   └── synthetic_chapter_01_errata.json
+│   ├── synthetic_textbook/
+│   │   └── chapter_01.md
 │   ├── prompt_templates/
 │   │   ├── batch_chat_mode.md
 │   │   ├── challenge_previous_judgement.md
@@ -73,7 +77,11 @@ scientific-textbook-proofreading-skill/
 │   ├── make_project_template.py
 │   ├── validate_schema.py
 │   ├── lint_skill.py
-│   └── run_evals.py
+│   ├── run_evals.py
+│   ├── lint_markdown.py
+│   └── validate_examples.py
+├── templates/
+│   └── processing_notes.template.md
 └── .github/
     └── workflows/
         └── ci.yml
@@ -365,7 +373,37 @@ python scripts/validate_schema.py
 python scripts/lint_skill.py
 python scripts/run_evals.py
 python scripts/lint_markdown.py
+python scripts/validate_examples.py
 ~~~
+
+## Synthetic Example
+
+This repository includes a small synthetic textbook chapter that can be used for public testing without committing copyrighted source PDFs:
+
+```text
+examples/synthetic_textbook/chapter_01.md
+```
+
+Expected outputs are provided in both Markdown and JSON formats:
+
+```text
+examples/expected_output/synthetic_chapter_01_errata.md
+examples/expected_output/synthetic_chapter_01_errata.json
+```
+
+The synthetic chapter intentionally contains several scientific issues:
+
+- a photon-energy formula missing a factor of `c`,
+- an inverse-Compton/synchrotron ratio missing the Thomson-regime qualifier,
+- an over-broad gamma-ray observing statement,
+- an area/volume dimensional inconsistency,
+- and one correct negative-control statement.
+
+The JSON report follows:
+
+```text
+schemas/errata_report.schema.json
+```
 
 ## Toward a Full Pipeline
 
