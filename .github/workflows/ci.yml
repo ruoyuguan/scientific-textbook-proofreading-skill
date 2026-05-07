@@ -21,6 +21,7 @@ jobs:
       - name: Check required files
         run: |
           test -f README.md
+          test -f CHANGELOG.md
           test -f skill/SKILL.md
           test -f skill/output_contract.md
           test -f skill/scientific_rubric.md
@@ -30,9 +31,18 @@ jobs:
           test -f evals/cases.jsonl
           test -f scripts/install_local.sh
           test -f scripts/make_project_template.py
+          test -f scripts/validate_schema.py
+          test -f scripts/lint_skill.py
+          test -f scripts/run_evals.py
           test -f examples/prompt_templates/local_file_report_mode.md
           test -f examples/prompt_templates/batch_chat_mode.md
+          test -f examples/prompt_templates/chapter_review_with_reference.md
+          test -f examples/prompt_templates/chapter_review_without_reference.md
+          test -f examples/prompt_templates/challenge_previous_judgement.md
+          test -f examples/prompt_templates/single_equation_check.md
           test -f examples/project_template/README.md
+          test -f examples/project_template/input/.gitkeep
+          test -f examples/project_template/reports/.gitkeep
 
       - name: Check helper scripts
         run: |
@@ -40,6 +50,7 @@ jobs:
           python scripts/make_project_template.py /tmp/proofreading-project-test
           test -d /tmp/proofreading-project-test/input
           test -d /tmp/proofreading-project-test/reports
+          test -f /tmp/proofreading-project-test/README.md
 
       - name: Run repository checks
         run: |
