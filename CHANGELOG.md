@@ -6,6 +6,16 @@ This project follows a lightweight form of semantic versioning during the alpha 
 
 ## [Unreleased]
 
+### Planned
+
+- Add more golden outputs for eval cases 007--012.
+- Add a full synthetic local-file workflow example.
+- Improve README installation and usage documentation.
+- Expand eval cases toward 20+ examples before the first beta release.
+- Add more domain-specific synthetic examples for astrophysics, gravitational-wave physics, and radiative processes.
+
+## [v0.1.1-alpha] - 2026-05-07
+
 ### Added
 
 - Added golden outputs for eval cases 003--006, covering inverse-Compton regime limits, dimensional consistency, overstrong EHT claims, and gamma-ray observing regimes.
@@ -26,15 +36,7 @@ This project follows a lightweight form of semantic versioning during the alpha 
 - Updated Local File Report Mode instructions in `skill/SKILL.md`.
 - Updated README documentation for the repository structure, synthetic examples, and validation checks.
 - Updated CI to validate Markdown files, eval cases, and example JSON reports.
-
-### Planned
-
-- Add more golden outputs for existing eval cases.
-- Add a full synthetic local-file workflow example.
-- Strengthen `scripts/validate_examples.py` against schema enums.
-- Improve README installation and usage documentation.
-- Expand eval cases toward 20+ examples before the first beta release.
-- Add more domain-specific synthetic examples for astrophysics, gravitational-wave physics, and radiative processes.
+- Strengthened `scripts/validate_examples.py` to check issue identifiers and enum values for problem types, severity, extraction reliability, verification methods, source types, judgements, and confidence values.
 
 ## [v0.1.0-alpha] - 2026-05-07
 
