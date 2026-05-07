@@ -13,9 +13,7 @@
 
 **Original formula or statement**
 
-```tex
-E = \frac{h}{\lambda}
-```
+    E = \frac{h}{\lambda}
 
 **Problem type**
 
@@ -38,30 +36,24 @@ E = \frac{h}{\lambda}
 **Evidence / sources**
 
 - Manuscript: `examples/input/sample_equations.tex`
-- Source basis: derivation from $begin:math:text$E\=h\\nu$end:math:text$ and $begin:math:text$\\nu\=c\/\\lambda$end:math:text$.
+- Source basis: derivation from `E = h\nu` and `\nu = c/\lambda`.
 - Notes: No external source is required for this elementary relation.
 
 **Re-derivation / check**
 
 Photon energy is
 
-```tex
-E = h\nu .
-```
+    E = h\nu .
 
-For a photon of wavelength $begin:math:text$\\lambda$end:math:text$,
+For a photon of wavelength `\lambda`, the frequency is
 
-```tex
-\nu = \frac{c}{\lambda}.
-```
+    \nu = \frac{c}{\lambda}.
 
 Therefore,
 
-```tex
-E = h\nu = \frac{hc}{\lambda}.
-```
+    E = h\nu = \frac{hc}{\lambda}.
 
-The original expression $begin:math:text$E\=h\/\\lambda$end:math:text$ is dimensionally inconsistent because $begin:math:text$h\/\\lambda$end:math:text$ has dimensions of momentum, not energy.
+The original expression `E = h/\lambda` is dimensionally inconsistent because `h/\lambda` has dimensions of momentum, not energy.
 
 **Judgement**
 
@@ -69,13 +61,11 @@ Confirmed error.
 
 **Corrected formula or statement**
 
-```tex
-E = \frac{hc}{\lambda}
-```
+    E = \frac{hc}{\lambda}
 
 **Suggested replacement prose**
 
-Replace the original formula with $begin:math:text$E\=hc\/\\lambda$end:math:text$. If natural units are used, explicitly state $begin:math:text$c\=1$end:math:text$ before writing $begin:math:text$E\=h\/\\lambda$end:math:text$, though this is not standard SI notation.
+Replace the original formula with `E = hc/\lambda`. If natural units are used, explicitly state `c = 1` before writing `E = h/\lambda`, though this is not standard SI notation.
 
 **Human-review note**
 
