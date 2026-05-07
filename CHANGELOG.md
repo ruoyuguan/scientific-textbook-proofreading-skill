@@ -8,6 +8,7 @@ This project follows a lightweight form of semantic versioning during the alpha 
 
 ### Added
 
+- Added golden outputs for eval cases 003--006, covering inverse-Compton regime limits, dimensional consistency, overstrong EHT claims, and gamma-ray observing regimes.
 - Added a reusable processing-notes template under `templates/processing_notes.template.md`.
 - Added a synthetic textbook chapter under `examples/synthetic_textbook/chapter_01.md`.
 - Added expected synthetic errata reports in both Markdown and JSON formats.
