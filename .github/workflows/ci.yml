@@ -44,6 +44,11 @@ jobs:
           test -f examples/project_template/input/.gitkeep
           test -f examples/project_template/reports/.gitkeep
           test -f scripts/lint_markdown.py
+          test -f templates/processing_notes.template.md
+          test -f examples/synthetic_textbook/chapter_01.md
+          test -f examples/expected_output/synthetic_chapter_01_errata.md
+          test -f examples/expected_output/synthetic_chapter_01_errata.json
+          test -f scripts/validate_examples.py
 
       - name: Check helper scripts
         run: |
@@ -59,3 +64,4 @@ jobs:
           python scripts/lint_skill.py
           python scripts/run_evals.py
           python scripts/lint_markdown.py
+          python scripts/validate_examples.py
