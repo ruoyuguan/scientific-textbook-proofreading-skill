@@ -1,6 +1,6 @@
 ---
 name: scientific-textbook-proofreading
-description: Use this skill when reviewing long-form scientific textbooks, lecture notes, homework solutions, or technical manuscripts for scientific correctness, especially formula errors, dimensional consistency, derivational validity, numerical coefficients, unit-system consistency, outdated scientific claims, and misleading scientific prose. Do not use it for general grammar polishing, layout correction, bibliography formatting, or citation-placeholder cleanup unless the user explicitly asks.
+description: Use this skill when the user asks to proofread, audit, verify, or produce errata for a long-form scientific textbook, lecture note, homework solution, or technical manuscript. Focus on scientific correctness: formula errors, dimensional consistency, first-principles derivations, numerical coefficients, unit systems, physical assumptions, outdated scientific claims, source-grounded corrections, and misleading scientific prose. Do not use for general grammar polishing, layout correction, bibliography formatting, or citation-placeholder cleanup unless explicitly requested.
 ---
 
 # Scientific Textbook Proofreading Skill
