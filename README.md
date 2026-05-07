@@ -71,7 +71,9 @@ scientific-textbook-proofreading-skill/
 │   ├── cases.jsonl
 │   └── golden/
 │       ├── case_001.md
-│       └── case_002.md
+│       ├── case_002.md
+│       ├── ...
+│       └── case_006.md
 ├── scripts/
 │   ├── install_local.sh
 │   ├── make_project_template.py
