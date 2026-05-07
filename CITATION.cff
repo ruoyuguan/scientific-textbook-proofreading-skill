@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this skill in academic, educational, or editorial work, please cite it as below."
+title: "Scientific Textbook Proofreading Skill"
+type: software
+authors:
+  - family-names: "Guan"
+    given-names: "Ruo-Yu"
+repository-code: "https://github.com/ruoyuguan/scientific-textbook-proofreading-skill"
+url: "https://github.com/ruoyuguan/scientific-textbook-proofreading-skill"
+abstract: >-
+  A reusable AI-agent skill for scientific textbook proofreading and errata
+  auditing, with emphasis on formula correctness, dimensional consistency,
+  physical assumptions, notation consistency, outdated scientific claims, and
+  misleading scientific prose.
+keywords:
+  - AI agent
+  - scientific proofreading
+  - textbook errata
+  - formula auditing
+  - dimensional analysis
+  - physics
+  - astronomy
+  - astrophysics
+  - education
+license: MIT
+version: "0.1.0-alpha"
+date-released: "2026-05-07"
