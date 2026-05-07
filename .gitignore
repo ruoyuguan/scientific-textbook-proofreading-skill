@@ -1,0 +1,22 @@
+# Local proofreading inputs
+input/
+reports/
+*.pdf
+*.docx
+*.epub
+*.djvu
+
+# Keep example placeholders
+!examples/project_template/input/.gitkeep
+!examples/project_template/reports/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
