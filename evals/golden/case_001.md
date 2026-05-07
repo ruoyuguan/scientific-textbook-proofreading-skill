@@ -1,4 +1,4 @@
-The expression $begin:math:text$E\=h\/\\lambda$end:math:text$ is dimensionally incorrect. Since $begin:math:text$E\=h\\nu$end:math:text$ and $begin:math:text$\\nu\=c\/\\lambda$end:math:text$, the correct expression is
+The expression \(E=h/\lambda\) is dimensionally incorrect. Since \(E=h\nu\) and \(\nu=c/\lambda\), the correct expression is
 
 ```tex
 E = \frac{hc}{\lambda}.
