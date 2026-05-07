@@ -13,19 +13,20 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Check required files
         run: |
           test -f README.md
           test -f skill/SKILL.md
-          test -f skill/output_contract.md
-          test -f skill/scientific_rubric.md
-          test -f skill/citation_policy.md
-          test -f skill/refusal_and_uncertainty_policy.md
           test -f schemas/errata_report.schema.json
           test -f evals/cases.jsonl
 
-      - name: Check SKILL.md metadata
+      - name: Run repository checks
         run: |
-          grep -q "^---" skill/SKILL.md
-          grep -q "^name:" skill/SKILL.md
-          grep -q "^description:" skill/SKILL.md
+          python scripts/validate_schema.py
+          python scripts/lint_skill.py
+          python scripts/run_evals.py
