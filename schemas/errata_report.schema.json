@@ -1,8 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Errata Report",
+  "title": "Scientific Textbook Errata Report",
   "type": "object",
-  "required": ["document_title", "review_scope", "issues"],
+  "required": [
+    "document_title",
+    "review_scope",
+    "date",
+    "issues"
+  ],
   "properties": {
     "document_title": {
       "type": "string"
@@ -10,14 +15,33 @@
     "review_scope": {
       "type": "string"
     },
+    "date": {
+      "type": "string"
+    },
+    "manuscript_under_review": {
+      "type": "string"
+    },
+    "reference_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "processing_notes": {
+      "type": "string"
+    },
     "issues": {
       "type": "array",
       "items": {
         "type": "object",
         "required": [
+          "issue_id",
           "location",
           "issue_title",
           "problem_type",
+          "severity",
+          "extraction_reliability",
+          "verification_method",
           "original",
           "check",
           "judgement",
@@ -25,8 +49,31 @@
           "confidence"
         ],
         "properties": {
+          "issue_id": {
+            "type": "string",
+            "pattern": "^CH[0-9]{2}-[0-9]{3}$"
+          },
           "location": {
             "type": "string"
+          },
+          "page": {
+            "type": [
+              "integer",
+              "string",
+              "null"
+            ]
+          },
+          "section": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "equation_or_figure": {
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "issue_title": {
             "type": "string"
@@ -34,7 +81,116 @@
           "problem_type": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "formula_error",
+                "dimensional_inconsistency",
+                "wrong_numerical_coefficient",
+                "wrong_physical_assumption",
+                "wrong_physical_regime",
+                "missing_approximation_regime",
+                "unit_system_mismatch",
+                "notation_conflict",
+                "ambiguous_notation",
+                "inconsistent_cross_reference",
+                "misleading_prose",
+                "overstrong_claim",
+                "outdated_scientific_claim",
+                "source_inconsistency",
+                "numerical_error",
+                "pedagogical_clarification",
+                "pdf_extraction_uncertainty"
+              ]
+            },
+            "minItems": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "major",
+              "minor",
+              "clarification"
+            ]
+          },
+          "extraction_reliability": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "verification_method": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "first_principles_derivation",
+                "dimensional_analysis",
+                "limiting_case_check",
+                "numerical_reproduction",
+                "source_comparison",
+                "cross_reference_check",
+                "current_status_check",
+                "notation_consistency_check",
+                "unit_system_check",
+                "manual_visual_check_required"
+              ]
+            },
+            "minItems": 1
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "type",
+                "description"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "manuscript_internal",
+                    "reference_textbook",
+                    "peer_reviewed_paper",
+                    "official_collaboration_source",
+                    "mission_or_catalog_documentation",
+                    "current_web_source",
+                    "derivation_only",
+                    "manual_check_required"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "location": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "access_date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           },
           "original": {
@@ -59,12 +215,58 @@
           "corrected_version": {
             "type": "string"
           },
+          "suggested_replacement_prose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "human_review_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "confidence": {
             "type": "string",
-            "enum": ["High", "Medium", "Low"]
+            "enum": [
+              "High",
+              "Medium",
+              "Low"
+            ]
           }
-        }
+        },
+        "additionalProperties": false
       }
+    },
+    "chapter_summary": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "confirmed_errors": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "likely_errors": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "convention_dependent_issues": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "clarification_only_issues": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "overall_judgement": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }
