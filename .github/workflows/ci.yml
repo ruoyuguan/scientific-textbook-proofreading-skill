@@ -43,6 +43,7 @@ jobs:
           test -f examples/project_template/README.md
           test -f examples/project_template/input/.gitkeep
           test -f examples/project_template/reports/.gitkeep
+          test -f scripts/lint_markdown.py
 
       - name: Check helper scripts
         run: |
@@ -57,3 +58,4 @@ jobs:
           python scripts/validate_schema.py
           python scripts/lint_skill.py
           python scripts/run_evals.py
+          python scripts/lint_markdown.py
