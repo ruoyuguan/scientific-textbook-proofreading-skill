@@ -1,1 +1,2 @@
-
+{"id":"case_001","field":"radiation","input":"The photon energy is E=h/lambda.","expected":"Should flag dimensional error and correct to E=hc/lambda."}
+{"id":"case_002","field":"gravitational_waves","input":"The GW strain from a circular binary scales as h proportional to M_c/r.","expected":"Should flag missing chirp-mass power and frequency dependence for leading quadrupole strain."}
