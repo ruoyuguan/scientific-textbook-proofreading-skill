@@ -477,6 +477,167 @@ When the user challenges a judgement:
 4. State whether the original judgement should be retained, weakened, or corrected.
 5. Acknowledge mistakes plainly if the previous judgement was wrong.
 
+## Batch Mode
+
+When the user requests "batch mode", "auto continue", "automatic chapter-by-chapter review", "continuous chapter review", "批处理模式", "自动继续", or similar, the assistant should continue reviewing chapters in order without waiting for the user to type "continue" after each chapter, as far as the current interaction mode allows.
+
+In batch mode, the assistant should:
+
+1. Review chapters in order.
+2. Preserve the same issue format for every chapter.
+3. Insert a clear chapter heading before each chapter report.
+4. Output only scientifically meaningful issues requiring correction or clarification.
+5. Include a chapter-level summary after each chapter.
+6. Stop only when:
+   - the output length is approaching the limit,
+   - the current review unit is too large to complete safely,
+   - file extraction quality is too poor,
+   - source roles are ambiguous,
+   - the user must clarify a critical assumption,
+   - or all requested chapters have been reviewed.
+
+In ordinary chat interfaces, the assistant cannot send additional messages after a response has ended. Therefore, batch mode means "continue within the same response as much as possible", not asynchronous background work.
+
+If working in a local coding-agent environment, prefer Local File Report Mode instead of printing all chapter reports in chat.
+
+## Local File Report Mode
+
+When the user requests "local file report mode", "write reports to files", "generate chapter report files", "方案 B", or similar, the assistant should write review results into local Markdown files rather than printing the full report in chat.
+
+This mode is recommended for Codex, Claude Code, or any local coding-agent environment.
+
+### Recommended project layout
+
+```text
+proofreading-project/
+├── input/
+│   ├── UNDER_REVIEW_textbook_draft.pdf
+│   └── REFERENCE_authoritative_source.pdf
+├── reports/
+│   ├── chapter_01_errata.md
+│   ├── chapter_02_errata.md
+│   ├── chapter_03_errata.md
+│   ├── processing_notes.md
+│   └── summary.md
+└── README.md
+```
+
+### File role rules
+
+The user should explicitly identify file roles. If roles are not explicit, infer from filename prefixes when possible:
+
+- `UNDER_REVIEW_` means the manuscript to be checked.
+- `REFERENCE_` means an authoritative or optional comparison source.
+- `ANSWER_KEY_` means an answer key or reference solution, useful but not automatically authoritative.
+- `IGNORE_` means the file should not be used.
+
+If file roles remain ambiguous, ask for clarification before performing a long review.
+
+### Report writing rules
+
+When writing reports to files:
+
+1. Create one Markdown report per chapter.
+2. Use zero-padded chapter numbers, such as `chapter_01_errata.md`.
+3. Write only issues requiring correction or clarification.
+4. Include a chapter-level summary in each chapter report.
+5. Create `reports/summary.md` after processing multiple chapters.
+6. Create or update `reports/processing_notes.md` when:
+   - PDF text extraction is unreliable,
+   - formula recognition is poor,
+   - chapter boundaries are ambiguous,
+   - reference source matching is incomplete,
+   - or a manual check is required.
+
+### Chapter report template
+
+Each chapter report should use this structure:
+
+```markdown
+# Chapter N Errata Report
+
+## Scope
+
+- Manuscript under review:
+- Reference sources:
+- Review unit:
+- Date:
+
+## Issues
+
+### Issue 1 — Page / Section / Equation
+
+**Original formula or statement**
+
+```tex
+...
+```
+
+**Problem type**
+
+- ...
+
+**Re-derivation / check**
+
+...
+
+**Judgement**
+
+...
+
+**Corrected formula or statement**
+
+```tex
+...
+```
+
+**Suggested replacement prose**
+
+...
+
+**Confidence**
+
+High / Medium / Low.
+
+## Chapter Summary
+
+- Confirmed errors: N
+- Likely errors: N
+- Convention-dependent issues: N
+- Clarification-only issues: N
+- Overall judgement: ...
+```
+
+### Summary report template
+
+The final `reports/summary.md` should include:
+
+```markdown
+# Scientific Textbook Proofreading Summary
+
+## File Roles
+
+- Manuscript under review:
+- Reference sources:
+
+## Chapter Overview
+
+| Chapter | Confirmed errors | Likely errors | Convention-dependent | Clarification-only | Notes |
+|---|---:|---:|---:|---:|---|
+
+## Highest-Priority Corrections
+
+1. ...
+
+## Manual Checks Required
+
+1. ...
+
+## Processing Notes
+
+- ...
+```
+
 ## Output Language
 
 Use the user's language by default.
