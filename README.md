@@ -344,7 +344,7 @@ Review Chapter 1. Do not print the full report in chat. Write the chapter report
 
 ## Evaluation Files
 
-This repository includes a minimal eval structure:
+This repository includes a lightweight eval structure:
 
 ~~~text
 evals/
@@ -354,6 +354,8 @@ evals/
     └── case_002.md
 ~~~
 
+`cases.jsonl` contains compact positive and negative regression cases. The `golden/` directory currently contains only selected example outputs and will be expanded over time.
+
 These are not full automated scientific evaluations. They are lightweight regression examples intended to keep the skill behavior stable as the instructions evolve.
 
 Run basic checks with:
@@ -362,6 +364,7 @@ Run basic checks with:
 python scripts/validate_schema.py
 python scripts/lint_skill.py
 python scripts/run_evals.py
+python scripts/lint_markdown.py
 ~~~
 
 ## Toward a Full Pipeline
