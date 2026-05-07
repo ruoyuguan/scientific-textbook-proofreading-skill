@@ -1,0 +1,193 @@
+{
+  "document_title": "Synthetic High-Energy Astrophysics Examples",
+  "review_scope": "Chapter 1",
+  "date": "2026-05-07",
+  "manuscript_under_review": "examples/synthetic_textbook/chapter_01.md",
+  "reference_sources": [
+    "first-principles checks",
+    "standard high-energy astrophysics conventions"
+  ],
+  "processing_notes": "Synthetic Markdown input; no PDF extraction limitations.",
+  "issues": [
+    {
+      "issue_id": "CH01-001",
+      "location": "Section 1.1 / Photon Energy",
+      "page": null,
+      "section": "1.1",
+      "equation_or_figure": null,
+      "issue_title": "Photon energy formula missing factor of c",
+      "problem_type": [
+        "formula_error",
+        "dimensional_inconsistency"
+      ],
+      "severity": "major",
+      "extraction_reliability": "high",
+      "verification_method": [
+        "dimensional_analysis",
+        "first_principles_derivation"
+      ],
+      "sources": [
+        {
+          "type": "manuscript_internal",
+          "description": "Synthetic chapter Section 1.1.",
+          "title": "Synthetic High-Energy Astrophysics Examples",
+          "location": "Section 1.1",
+          "url": null,
+          "access_date": null
+        },
+        {
+          "type": "derivation_only",
+          "description": "Photon energy follows from E = h nu and nu = c/lambda.",
+          "title": null,
+          "location": null,
+          "url": null,
+          "access_date": null
+        }
+      ],
+      "original": "E = h/lambda",
+      "check": "Photon energy is E = h nu and nu = c/lambda, so E = hc/lambda. The expression h/lambda has dimensions of momentum, not energy.",
+      "judgement": "Confirmed error",
+      "corrected_version": "E = hc/lambda",
+      "suggested_replacement_prose": "Replace the original expression with E = hc/lambda unless the text explicitly declares c = 1.",
+      "human_review_note": "Check whether the surrounding text declares natural units.",
+      "confidence": "High"
+    },
+    {
+      "issue_id": "CH01-002",
+      "location": "Section 1.2 / Inverse-Compton and Synchrotron Emission",
+      "page": null,
+      "section": "1.2",
+      "equation_or_figure": null,
+      "issue_title": "Inverse-Compton-to-synchrotron power ratio lacks Thomson-regime qualifier",
+      "problem_type": [
+        "missing_approximation_regime",
+        "wrong_physical_regime",
+        "misleading_prose"
+      ],
+      "severity": "major",
+      "extraction_reliability": "high",
+      "verification_method": [
+        "source_comparison",
+        "limiting_case_check"
+      ],
+      "sources": [
+        {
+          "type": "manuscript_internal",
+          "description": "Synthetic chapter Section 1.2.",
+          "title": "Synthetic High-Energy Astrophysics Examples",
+          "location": "Section 1.2",
+          "url": null,
+          "access_date": null
+        },
+        {
+          "type": "derivation_only",
+          "description": "The simple total-power ratio is a Thomson-regime approximation and is modified by Klein-Nishina suppression at high energies.",
+          "title": null,
+          "location": null,
+          "url": null,
+          "access_date": null
+        }
+      ],
+      "original": "P_IC / P_syn = U_rad / U_B, valid at all photon energies.",
+      "check": "The ratio is valid as a simple total-power scaling in the Thomson regime. At high energies, Klein-Nishina effects alter the inverse-Compton cross section and spectrum.",
+      "judgement": "Correct but misleading",
+      "corrected_version": "In the Thomson regime, P_IC / P_syn = U_rad / U_B for the same electron population; at high energies, Klein-Nishina corrections are required.",
+      "suggested_replacement_prose": "Add the regime qualifier and remove the claim of validity at all photon energies.",
+      "human_review_note": "Check whether later sections introduce Klein-Nishina corrections.",
+      "confidence": "High"
+    },
+    {
+      "issue_id": "CH01-003",
+      "location": "Section 1.3 / Gamma-Ray Observations",
+      "page": null,
+      "section": "1.3",
+      "equation_or_figure": null,
+      "issue_title": "Gamma-ray observing statement ignores ground-based indirect VHE/UHE detection",
+      "problem_type": [
+        "misleading_prose",
+        "wrong_physical_regime"
+      ],
+      "severity": "major",
+      "extraction_reliability": "high",
+      "verification_method": [
+        "source_comparison",
+        "cross_reference_check"
+      ],
+      "sources": [
+        {
+          "type": "manuscript_internal",
+          "description": "Synthetic chapter Section 1.3.",
+          "title": "Synthetic High-Energy Astrophysics Examples",
+          "location": "Section 1.3",
+          "url": null,
+          "access_date": null
+        },
+        {
+          "type": "derivation_only",
+          "description": "Atmospheric opacity prevents direct detection of primary gamma rays from the ground but enables indirect air-shower detection at very high energies.",
+          "title": null,
+          "location": null,
+          "url": null,
+          "access_date": null
+        }
+      ],
+      "original": "All gamma rays must be detected by space telescopes because Earth's atmosphere is opaque to gamma rays.",
+      "check": "The statement is too broad. Low-to-medium energy gamma rays require space-based detectors, but VHE/UHE gamma rays can be detected indirectly from the ground.",
+      "judgement": "Correct but misleading",
+      "corrected_version": "X-rays and low-to-medium energy gamma rays usually require space-based telescopes; VHE/UHE gamma rays can be detected indirectly from the ground through atmospheric showers, Cherenkov light, or particle arrays.",
+      "suggested_replacement_prose": "Distinguish direct space-based detection from indirect ground-based detection.",
+      "human_review_note": "Check consistency with any later discussion of ground-based gamma-ray facilities.",
+      "confidence": "High"
+    },
+    {
+      "issue_id": "CH01-004",
+      "location": "Section 1.4 / Neutrino Detector Scale",
+      "page": null,
+      "section": "1.4",
+      "equation_or_figure": null,
+      "issue_title": "Detector area incorrectly given in cubic kilometres",
+      "problem_type": [
+        "dimensional_inconsistency",
+        "unit_system_mismatch"
+      ],
+      "severity": "major",
+      "extraction_reliability": "high",
+      "verification_method": [
+        "dimensional_analysis",
+        "unit_system_check"
+      ],
+      "sources": [
+        {
+          "type": "manuscript_internal",
+          "description": "Synthetic chapter Section 1.4.",
+          "title": "Synthetic High-Energy Astrophysics Examples",
+          "location": "Section 1.4",
+          "url": null,
+          "access_date": null
+        },
+        {
+          "type": "derivation_only",
+          "description": "Area has dimensions of length squared, whereas km^3 is a volume.",
+          "title": null,
+          "location": null,
+          "url": null,
+          "access_date": null
+        }
+      ],
+      "original": "IceCube-Gen2 will increase the detector area to about 8 km^3.",
+      "check": "An area cannot be measured in cubic kilometres. The intended quantity is likely an instrumented volume.",
+      "judgement": "Confirmed error",
+      "corrected_version": "IceCube-Gen2 will increase the instrumented volume to about 8 km^3.",
+      "suggested_replacement_prose": "Replace detector area with instrumented volume if 8 km^3 is the intended quantity.",
+      "human_review_note": "If the surrounding discussion concerns effective area or sensitivity, state that separately.",
+      "confidence": "High"
+    }
+  ],
+  "chapter_summary": {
+    "confirmed_errors": 2,
+    "likely_errors": 0,
+    "convention_dependent_issues": 0,
+    "clarification_only_issues": 2,
+    "overall_judgement": "The synthetic chapter contains four deliberate issues and one correct negative-control statement."
+  }
+}
