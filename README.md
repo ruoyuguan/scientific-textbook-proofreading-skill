@@ -1,5 +1,7 @@
 # Scientific Textbook Proofreading Skill
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 A reusable AI skill for scientific textbook proofreading and errata auditing.
 
 This skill is designed for long-form scientific manuscripts with equations, derivations, cross-references, appendices, exercises, and domain-specific terminology. It helps AI agents review scientific correctness chapter by chapter, focusing on formula errors, dimensional consistency, physical assumptions, numerical coefficients, convention mismatches, outdated claims, and misleading scientific prose.
