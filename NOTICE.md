@@ -4,7 +4,7 @@
 
 Copyright (c) 2026 Ruoyu Guan.
 
-This project is released under the MIT License. See [`LICENSE`](LICENSE) for the full license text.
+This project is released under the MIT License. See [LICENSE](LICENSE) for the full license text.
 
 The MIT License applies to the software, scripts, schemas, documentation, examples, and skill instructions in this repository, unless otherwise stated.
 
@@ -36,7 +36,7 @@ Users are responsible for verifying:
 
 If you use this project in academic, educational, editorial, or software work, please cite it.
 
-The preferred citation metadata is provided in [`CITATION.cff`](CITATION.cff). GitHub should display a “Cite this repository” option when this file is present on the default branch.
+The preferred citation metadata is provided in [CITATION.cff](CITATION.cff). GitHub should display a “Cite this repository” option when this file is present on the default branch.
 
 A suggested plain-text citation is:
 
