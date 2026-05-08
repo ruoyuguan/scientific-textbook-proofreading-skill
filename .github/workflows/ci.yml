@@ -49,6 +49,7 @@ jobs:
           test -f examples/expected_output/synthetic_chapter_01_errata.md
           test -f examples/expected_output/synthetic_chapter_01_errata.json
           test -f scripts/validate_examples.py
+          test -f README.zh-CN.md
 
       - name: Check helper scripts
         run: |
