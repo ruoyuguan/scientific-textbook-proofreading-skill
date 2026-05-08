@@ -17,6 +17,8 @@ This project follows a lightweight form of semantic versioning during the alpha 
 ### Added
 
 - Added Simplified Chinese README (`README.zh-CN.md`) and language switch links.
+- Added `NOTICE.md` with copyright, citation, AI-assisted development, and maintainer-responsibility statements.
+- Added citation and AI-assisted development disclosure sections to README files.
 
 ## [v0.1.1-alpha] - 2026-05-07
 
