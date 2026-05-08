@@ -21,6 +21,7 @@ ROOTS = [
     Path("examples"),
     Path("evals"),
     Path("README.zh-CN.md"),
+    Path("NOTICE.md"),
 ]
 
 FENCE_RE = re.compile(r"^(`{3,}|~{3,})(.*)$")
