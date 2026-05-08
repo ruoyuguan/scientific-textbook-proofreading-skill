@@ -1,6 +1,6 @@
 # Scientific Textbook Proofreading Skill
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+**Language:** [English](README.md) | [简体中文](README.zh-CN.md)
 
 A reusable AI skill for scientific textbook proofreading and errata auditing.
 
