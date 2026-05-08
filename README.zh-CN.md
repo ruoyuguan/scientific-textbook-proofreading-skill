@@ -551,3 +551,31 @@ Skill instructions
 请不要将受版权保护的教材、私人手稿、未公开讲义或专有材料提交到本公开仓库。
 
 用户应在运行时提供自己有合法访问权限的教材、参考资料和 PDF 文件。
+
+## 引用方式
+
+如果您在学术、教学、编辑或软件工作中使用本项目，请引用本项目。
+
+本仓库提供了机器可读的引用元数据文件：
+
+```text
+CITATION.cff
+```
+
+GitHub 会基于该文件在仓库页面显示 “Cite this repository” 入口，方便导出引用信息。
+
+建议引用格式：
+
+```text
+Guan, Ruoyu. Scientific Textbook Proofreading Skill. Version v0.1.1-alpha. 2026. GitHub repository: https://github.com/ruoyuguan/scientific-textbook-proofreading-skill
+```
+
+## AI 辅助开发声明
+
+本项目由 Guan Ruoyu 维护，并在开发过程中使用了包括 ChatGPT 在内的 AI 工具进行辅助。
+
+AI 工具主要用于文档草拟、措辞润色、示例生成、项目结构建议和代码/脚本改进建议。所有正式发布的文件均经过维护者人工审阅、筛选、修改并接受。
+
+本项目的内容、设计决策、版本发布和任何被采纳的代码或文档，由维护者本人负责。AI 工具不承担科学、法律、编辑或工程正确性的责任。
+
+完整声明见 [NOTICE.md](NOTICE.md)。
