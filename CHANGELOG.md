@@ -14,6 +14,10 @@ This project follows a lightweight form of semantic versioning during the alpha 
 - Expand eval cases toward 20+ examples before the first beta release.
 - Add more domain-specific synthetic examples for astrophysics, gravitational-wave physics, and radiative processes.
 
+### Added
+
+- Added Simplified Chinese README (`README.zh-CN.md`) and language switch links.
+
 ## [v0.1.1-alpha] - 2026-05-07
 
 ### Added
