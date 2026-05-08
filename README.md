@@ -443,3 +443,25 @@ The skill is designed to reduce false positives and false negatives, but it cann
 Do not commit copyrighted textbooks, private manuscripts, proprietary lecture notes, or unpublished drafts to this public repository.
 
 Users should provide their own legally accessible manuscripts and reference PDFs at runtime.
+
+## Citation
+
+If you use this project in academic, educational, editorial, or software work, please cite it.
+
+Citation metadata is provided in [CITATION.cff](CITATION.cff). On GitHub, this enables the “Cite this repository” option for convenient citation export.
+
+Suggested citation:
+
+```text
+Guan, Ruoyu. Scientific Textbook Proofreading Skill. Version v0.1.1-alpha. 2026. GitHub repository: https://github.com/ruoyuguan/scientific-textbook-proofreading-skill
+```
+
+## AI-Assisted Development Disclosure
+
+This project was developed and maintained by Ruoyu Guan with assistance from AI tools, including ChatGPT.
+
+AI tools were used for drafting, documentation, examples, repository-structure planning, and code/script refinement. All released files have been reviewed, curated, edited, and accepted by the maintainer.
+
+The maintainer is responsible for the repository content, design decisions, releases, and accepted code or documentation. AI tools do not bear responsibility for the scientific, legal, editorial, or engineering correctness of this project.
+
+See [NOTICE.md](NOTICE.md) for the full notice.
